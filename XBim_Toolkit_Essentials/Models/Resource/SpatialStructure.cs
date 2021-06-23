@@ -12,7 +12,8 @@ namespace XBim_Toolkit_Essentials.Models.Resource
         public List<SpatialStructureViewModel> ListSpatialStructureViewModel { get; set; } = new List<SpatialStructureViewModel>();
         public void Get()
         {
-            const string file = "SampleHouse.ifc";
+            var filePath = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\AppData\Local\Temp\XBim_Toolkit_Essentials\");
+            string file = filePath + "SampleHouse.ifc";
 
             using (var model = IfcStore.Open(file))
             {

@@ -12,7 +12,8 @@ namespace XBim_Toolkit_Essentials.Models.Resource
         public BasicModelOperationsViewModel BasicModelOperationsViewModel { get; set; } = new BasicModelOperationsViewModel();
         public void Retrieve()
         {
-            const string fileName = "SampleHouse.ifc";
+            var filePath = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\AppData\Local\Temp\XBim_Toolkit_Essentials\");
+            string fileName = filePath + "SampleHouse.ifc";
             using (var model = IfcStore.Open(fileName))
             {
                 //get all doors in the model (using IFC4 interface of IfcDoor this will work both for IFC2x3 and IFC4)
