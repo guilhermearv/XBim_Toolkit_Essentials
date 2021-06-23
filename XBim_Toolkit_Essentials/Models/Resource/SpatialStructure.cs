@@ -26,6 +26,7 @@ namespace XBim_Toolkit_Essentials.Models.Resource
             this.ListSpatialStructureViewModel.Add(new SpatialStructureViewModel()
             {
                 Level = level,
+                GlobalId = o.GlobalId,
                 Name = o.Name,
                 TypeName = o.GetType().Name
             });
@@ -41,6 +42,7 @@ namespace XBim_Toolkit_Essentials.Models.Resource
                     this.ListSpatialStructureViewModel.Add(new SpatialStructureViewModel()
                     {
                         Level = level,
+                        GlobalId = element.GlobalId,
                         Name = element.Name,
                         TypeName = element.GetType().Name
                     });
