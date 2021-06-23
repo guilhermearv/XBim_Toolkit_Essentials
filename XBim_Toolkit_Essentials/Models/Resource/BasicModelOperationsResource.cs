@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Xbim.Ifc;
 using Xbim.Ifc4.Interfaces;
@@ -8,11 +9,13 @@ namespace XBim_Toolkit_Essentials.Models.Resource
 {
     public class BasicModelOperationsResource
     {
+        private string filePath { get; set; } = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\AppData\Local\Temp\XBim_Toolkit_Essentials\");
         public string GlobalId { get; set; }
         public BasicModelOperationsViewModel BasicModelOperationsViewModel { get; set; } = new BasicModelOperationsViewModel();
+        public List<ConvertXmlViewModel> ListConvertXmlViewModel { get; set; } = new List<ConvertXmlViewModel>();
         public void Retrieve()
         {
-            var filePath = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\AppData\Local\Temp\XBim_Toolkit_Essentials\");
+            
             string fileName = filePath + "SampleHouse.ifc";
             using (var model = IfcStore.Open(fileName))
             {
@@ -43,6 +46,40 @@ namespace XBim_Toolkit_Essentials.Models.Resource
                 }
                     
             }
+        }
+
+        public void ConvertXml()
+        {
+            //open STEP21 file
+            string fileName = filePath + "SampleHouse.ifc";
+            using (var stepModel = IfcStore.Open(fileName))
+            {
+                //save as XML
+                stepModel.SaveAs(filePath + "SampleHouse.ifcxml");
+
+                //open XML file
+                using (var xmlModel = IfcStore.Open(filePath + "SampleHouse.ifcxml"))
+                {
+                    this.ListConvertXmlViewModel.Add(new ConvertXmlViewModel
+                    {
+                        TypeName = "All",
+                        StepCount = stepModel.Instances.Count(),
+                        XmlCount = xmlModel.Instances.Count(),
+                    });
+
+                    var ListType = stepModel.Instances.Select(x => x.GetType().Name).Distinct().ToList();
+                    foreach (var type in ListType)
+                    {
+                        this.ListConvertXmlViewModel.Add(new ConvertXmlViewModel
+                        {
+                            TypeName = type,
+                            StepCount = stepModel.Instances.Where(d => type.Contains(d.GetType().Name)).Count(),
+                            XmlCount = xmlModel.Instances.Where(d => type.Contains(d.GetType().Name)).Count(),
+                        });
+                    }
+                }
+            }
+
         }
     }
 }

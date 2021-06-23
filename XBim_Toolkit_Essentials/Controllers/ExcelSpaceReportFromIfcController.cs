@@ -33,27 +33,5 @@ namespace XBim_Toolkit_Essentials.Controllers
             }
 
         }
-        
-        [HttpGet]
-        [Route("download")]
-        public async Task<IActionResult> Download()
-        {
-            try
-            {
-                var path ="spaces.xlsx";
-                var stream = System.IO.File.OpenRead(Environment.ExpandEnvironmentVariables(@"%USERPROFILE%\AppData\Local\Temp\XBim_Toolkit_Essentials\") + path);             
-
-                FileStreamResult result = new FileStreamResult(stream, "application/octet-stream")
-                {
-                    FileDownloadName = path
-                };
-                return await Task.FromResult(result);
-            }
-            catch (Exception e)
-            {
-                var item = new { Error = e.Message, Trace = e.StackTrace };
-                return StatusCode(StatusCodes.Status500InternalServerError, item);
-            }
-        }
     }
 }
