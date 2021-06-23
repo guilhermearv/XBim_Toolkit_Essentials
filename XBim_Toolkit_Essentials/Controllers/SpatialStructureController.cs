@@ -11,6 +11,7 @@ namespace XBim_Toolkit_Essentials.Controllers
     public class SpatialStructureController : Controller
     {
         [HttpGet]
+        [Route("")]
         public IActionResult Index()
         {
             try
