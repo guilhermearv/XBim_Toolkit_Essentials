@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Eventful building</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
+    <script src="js/xbim-viewer.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    
+</head>
+<body>
+    <div id="main">
+        <section>
+            <canvas id="viewer" width="500" height="300"></canvas>
+            <div>
+                Frames per second: <span id="fps">0</span>
+            </div>
+            <div>
+                You have picked product <strong><span id="productId"></span></strong> from model <strong><span id="modelId"></span></strong> at <span id="coordsId"></span>
+            </div>
+            <div id="errors"></div>
+
+            <br />
+            <br />
+            <div id="msg">
+                <p>
+                    Use left mouse button for orbiting, scroll button for zooming and press middle/scroll button for panning.
+                </p>
+                <p>
+                    Double click to zoom to element
+                </p>
+            </div>
+            <div>
+                <a href="eventful-building.html">Back to tutorial</a>
+            </div>
+        </section>
+    </div>    
+</body>
+</html>
+<script src="js/view.js"></script>

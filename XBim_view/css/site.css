@@ -1,0 +1,140 @@
+@-ms-viewport {
+    width: device-width;
+}
+
+@-ms-viewport {
+    width: device-width;
+}
+
+@-o-viewport {
+    width: device-width;
+}
+
+@viewport {
+    width: device-width;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 400px;
+    font-family: 'Roboto', sans-serif;
+    color: #0f1c43;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.container {
+    padding-top: 10px;
+}
+
+.banner {
+    width: 100%;
+    padding: 2em 1em;
+    text-align: center;
+    background: #2f6cf4;
+    color: white;
+}
+
+@media (max-width : 768px) {
+    .banner {
+        display: none;
+    }
+}
+
+.banner h1 {
+    font-size: 60px;
+}
+
+.banner h1 small {
+    color: white;
+}
+
+
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.step .number {
+    color: red;
+}
+
+.group-divider {
+    font-size: 80%;
+    color: gray;
+    padding-left: 1em;
+}
+
+.brands-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #9d9d9d;
+    background: black;
+}
+
+.brand {
+    margin: 0 10px;
+}
+
+.navbar-brand {
+    padding-right: 25px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 15px;
+    position: relative;
+}
+
+.navbar-brand img {
+    height: 2.5em;
+}
+
+.navbar-inverse {
+    background-color: #0f1c43;
+    border-color: #0f1c43;
+}
+
+.navbar .container {
+    padding: 0.5em 1em;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: #ff5d6a;
+}
+
+p img {
+    max-width: 100%;
+}
+
+ul.nav.navbar-nav {
+    float:right;
+}
+@media (max-width : 768px) {
+    ul.nav.navbar-nav {
+        float: none;
+    }
+}
+
+#invitation {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: white;
+    width: auto;
+    padding: 1.5em 2em 2em 2em;
+    margin: 0.5em;
+    border-radius: 10px;
+    box-shadow: 0 0 50px black;
+}
